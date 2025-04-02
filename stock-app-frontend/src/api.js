@@ -1,6 +1,7 @@
 import { toast } from 'react-toastify';
 
-const API_URL = 'https://stockify-app.onrender.com/api';
+// Recuperamos la URL de la API desde las variables de entorno
+const API_URL = process.env.API_URL || 'http://localhost:3001/api'; // En desarrollo, puedes usar localhost
 
 export async function getProducts() {
   try {
