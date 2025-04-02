@@ -1,3 +1,11 @@
+import pkg from 'pg';
+const { Pool } = pkg;
+
+const pool = new Pool({
+  connectionString: 'tu-cadena-a-mano', // <- esto es lo que hay que cambiar
+});
+
+
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
