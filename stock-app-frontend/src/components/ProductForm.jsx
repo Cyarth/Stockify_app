@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { createProduct } from '../api';
+import { toast } from 'react-toastify'; // ✅ nuevo import
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductForm = ({ onProductCreated }) => {
   const [formData, setFormData] = useState({
@@ -29,12 +31,12 @@ const ProductForm = ({ onProductCreated }) => {
 
     try {
       await createProduct(productToSend);
-      alert('✅ Producto creado correctamente');
+      toast.success('✅ Producto creado correctamente'); // ✅ toast success
       setFormData({ name: '', sku: '', barcode: '', description: '', price: '' });
       onProductCreated?.();
     } catch (err) {
       console.error(err);
-      alert('❌ Error al crear el producto');
+      toast.error('❌ Error al crear el producto'); // ✅ toast error
     }
   };
 

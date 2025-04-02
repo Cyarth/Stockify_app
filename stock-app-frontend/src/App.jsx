@@ -3,6 +3,9 @@ import ProductForm from './components/ProductForm';
 import StockForm from './components/StockForm';
 import ProductList from './components/ProductList';
 
+import { ToastContainer } from 'react-toastify'; // ✅ import
+import 'react-toastify/dist/ReactToastify.css';  // ✅ estilos
+
 export default function App() {
   const [section, setSection] = useState('products');
   const [refresh, setRefresh] = useState(false);
@@ -29,6 +32,9 @@ export default function App() {
         {section === 'stock' && <StockForm onStockUpdated={triggerRefresh} />}
         {section === 'products' && <ProductList key={refresh} />}
       </div>
+
+      {/* ✅ Contenedor de notificaciones */}
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 }
